@@ -1,6 +1,6 @@
 # sharp_aquos_rc
 
-### Control Sharp Aquos SmartTVs with Python
+## Control Sharp Aquos SmartTVs with Python
 
 Based on the API for "Remote Control App" defined on pages 8-3 through 8-8 in the [sharp-user-manual].
 
@@ -12,7 +12,9 @@ Based on the API for "Remote Control App" defined on pages 8-3 through 8-8 in th
 
 3) Set Login/Pass
 
-### Installation
+## Installation and basic instructions
+
+Installation via pip:
 
     pip install sharp_aquos_rc
 
@@ -48,17 +50,17 @@ True
 True
 ```
 
-### Documentation
+## Documentation
 
 Full Documentation is available through pydoc
 
     pydoc sharp_aquos_rc
 
-### LICENSE
+## LICENSE
 
 MIT
 
-### TODO/Contribute
+## TODO/Contribute
 
 Contributions and Pull Requests always welcome.
 
