@@ -1,8 +1,11 @@
 # sharp_aquos_rc
+
 ### Control Sharp Aquos SmartTVs with Python
+
 Based on the API for "Remote Control App" defined on pages 8-3 through 8-8 in the [sharp-user-manual].
 
 ### To enable API on your TV
+
 1) MENU->Initial Setup->AQUOS Remote Control
 
 2) Enable
@@ -10,11 +13,28 @@ Based on the API for "Remote Control App" defined on pages 8-3 through 8-8 in th
 3) Set Login/Pass
 
 ### Installation
-```
-pip install sharp_aquos_rc
-```
+
+    pip install sharp_aquos_rc
+
+### Command profiles
+
+Depending on the country of purchase of the television you must choose between
+one of the available profiles or command maps (see 
+the `./sharp_aquos_rc/commands` directory):
+
+- cn
+- eu
+- jp
+- us
+
+The `us` profile is used by default, so to choose another one simply pass it 
+as an option to the class constructor. For example:
+
+    >>> tv = sharp_aquos_rc.TV('192.168.1.5', 10002, 'admin', 'password', command_map='eu')
+
 
 ### Examples
+
 ```
 >>> import sharp_aquos_rc
 >>>
@@ -29,15 +49,17 @@ True
 ```
 
 ### Documentation
+
 Full Documentation is available through pydoc
-```
-pydoc sharp_aquos_rc
-```
+
+    pydoc sharp_aquos_rc
 
 ### LICENSE
+
 MIT
 
 ### TODO/Contribute
+
 Contributions and Pull Requests always welcome.
 
 Currently on the TODO list:
@@ -45,10 +67,6 @@ Currently on the TODO list:
 - Unit Tests
 - Error Checking and Input Validation
 
-
-
-
-
-[sharp-user-manual]: <http://files.sharpusa.com/Downloads/ForHome/HomeEntertainment/LCDTVs/Manuals/2014_TV_OM.pdf>
+[sharp-user-manual](http://files.sharpusa.com/Downloads/ForHome/HomeEntertainment/LCDTVs/Manuals/2014_TV_OM.pdf)
 
 
