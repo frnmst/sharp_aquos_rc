@@ -18,6 +18,8 @@ digital_channel_cable_major: "DTVD"
 digital_channel_cable_minor: ""
 channel_up: "CHUP1"
 channel_down: "CHDW1"
+teletext: "TEXT"
+teletext_jump: "DCPG"
 input:
   tv: 
     command: "ITVD0"

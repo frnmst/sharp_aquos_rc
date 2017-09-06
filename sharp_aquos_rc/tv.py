@@ -239,6 +239,31 @@ class TV(object):
         """
         return self._send_command('volume_down')
 
+    def teletext(self, opt='?'):
+        """
+        Description:
+
+            Enable the teletext
+            Call with no arguments to get current setting
+
+        Arguments:
+            opt: integer
+                0: Disable
+                1: Enable
+        """
+        return self._send_command('teletext', opt)
+
+    def teletext_jump(self, opt='100'):
+        """
+        Description:
+            Jump to specified page
+
+        Arguments:
+            opt: integer
+            100 - 899: Page number
+        """
+        return self._send_command('teletext_jump', opt)
+
     def view_mode(self, opt='?'):
         """
         Description:
