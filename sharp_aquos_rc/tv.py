@@ -16,10 +16,20 @@ class TV(object):
 
     URL: http://github.com/jmoore/sharp_aquos_rc
     """
+
     _VALID_COMMAND_MAPS = ["eu", "us", "cn", "jp"]
 
     def __init__(self, ip, port, username, password,  # pylint: disable=R0913
                  timeout=5, connection_timeout=2, command_map='us'):
+
+        assert isinstance(ip, str)
+        assert isinstance(port, int)
+        assert isinstance(username, str)
+        assert isinstance(password, str)
+        assert isinstance(timeout, int)
+        assert isinstance(connection_timeout, int)
+        assert isinstance(command_map, str)
+
         self.ip_address = ip
         self.port = port
         self.auth = str.encode(username + '\r' + password + '\r')
