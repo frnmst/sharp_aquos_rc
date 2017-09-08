@@ -20,43 +20,44 @@ channel_up: "CHUP1"
 channel_down: "CHDW1"
 teletext: "TEXT"
 teletext_jump: "DCPG"
+input_index: "IAVD?"
 input:
   tv:
     command: "ITVD0"
     name: "TV"
-    order: 0
+    index: 0
   hdmi_1:
     command: "IAVD1"
     name: "HDMI 1"
-    order: 1
+    index: 1
   hdmi_2:
     command: "IAVD2"
     name: "HDMI 2"
-    order: 2
+    index: 2
   hdmi_3:
     command: "IAVD3"
     name: "HDMI 3"
-    order: 3
+    index: 3
   hdmi_4:
     command: "IAVD4"
     name: "HDMI 4"
-    order: 4
+    index: 4
   component_in:
     command: "IAVD5"
     name: "Component"
-    order: 5
+    index: 5
   video_in_1:
     command: "IAVD6"
     name: "Video in 1"
-    order: 6
+    index: 6
   video_in_2:
     command: "IAVD7"
     name: "Video in 2"
-    order: 7
+    index: 7
   pc_in:
     command: "IAVD8"
     name: "PC"
-    order: 8
+    index: 8
 remote:
   0: "IRCO0127"
   1: "IRCO0101"

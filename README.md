@@ -2,7 +2,12 @@
 
 ## Control Sharp Aquos SmartTVs with Python
 
-Based on the API for "Remote Control App" defined on pages 8-3 through 8-8 in the [sharp-user-manual].
+Based on the API for "Remote Control App" defined on:
+
+- pages 8-3 (101) through 8-8 (106) in the
+  [sharp user manual](http://files.sharpusa.com/Downloads/ForHome/HomeEntertainment/LCDTVs/Manuals/2014_TV_OM.pdf)
+- pages 58 through 59 in another
+  [sharp user manual](http://www.sharp.co.uk/cps/rde/xbcr/documents/documents/om/11_lcd-tv/LC40-46LE830E-RU-LE831E-RU_OM_GB.pdf)
 
 ### To enable API on your TV
 
@@ -37,18 +42,16 @@ as an option to the class constructor. For example:
 
 ### Examples
 
-```
->>> import sharp_aquos_rc
->>>
->>> tv = sharp_aquos_rc.TV('192.168.1.5', 10002, 'admin', 'password')
->>> 
->>> tv.power() # Returns 1 if TV is on and 0 if TV is off
-1
->>> tv.power(0) # Turn the TV off
-True
->>> tv.input(2) # Set the TV to HDMI Input 2
-True
-```
+    >>> import sharp_aquos_rc
+    >>>
+    >>> tv = sharp_aquos_rc.TV('192.168.1.5', 10002, 'admin', 'password')
+    >>>
+    >>> tv.power() # Returns 1 if TV is on and 0 if TV is off
+    1
+    >>> tv.power(0) # Turn the TV off
+    True
+    >>> tv.input('HDMI 2') # Set the TV to HDMI Input 2
+    True
 
 ## Documentation
 
@@ -68,7 +71,5 @@ Currently on the TODO list:
 - Remote Button Functionality
 - Unit Tests
 - Error Checking and Input Validation
-
-[sharp-user-manual](http://files.sharpusa.com/Downloads/ForHome/HomeEntertainment/LCDTVs/Manuals/2014_TV_OM.pdf)
-
-
+- Better timeouts for sequential operations so that the sent 
+  commands don't get ignored.

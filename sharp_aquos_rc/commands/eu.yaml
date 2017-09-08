@@ -20,51 +20,44 @@ channel_up: "CHUP1"
 channel_down: "CHDW1"
 teletext: "TEXT"
 teletext_jump: "DCPG"
+input_index: "IAVD?"
 input:
-  tv: 
+  tv:
     command: "ITVD0"
     name: "TV"
-    order: 0
-  hdmi_1: 
-    command: "IRCO11F4"
-    name: "HDMI 1"
-    order: 1
-  hdmi_2: 
-    command: "IRCO11F5"
-    name: "HDMI 2"
-    order: 2
-  hdmi_3: 
-    command: "IRCO11F8"
-    name: "HDMI 3"
-    order: 3
-  hdmi_4: 
-    command: "IRCO1195"
-    name: "HDMI 4"
-    order: 4
-  component_in: 
+    index: 0
+  component_in:
     command: "IRCO11ED"
     name: "Component"
-    order: 5
-  video_in_1: 
+    index: 1
+  video_in_1:
     command: "IRCO11EE"
     name: "Video in 1"
-    order: 6
-  video_in_2: 
+    index: 2
+  video_in_2:
     command: "IRCO11EF"
     name: "Video in 2"
-    order: 7
-  pc_in: 
-    command: "IRC01197"
+    index: 3
+  hdmi_1:
+    command: "IRCO11F4"
+    name: "HDMI 1"
+    index: 4
+  hdmi_2:
+    command: "IRCO11F5"
+    name: "HDMI 2"
+    index: 5
+  hdmi_3:
+    command: "IRCO11F8"
+    name: "HDMI 3"
+    index: 6
+  hdmi_4:
+    command: "IRCO1195"
+    name: "HDMI 4"
+    index: 7
+  pc_in:
+    command: "IRCO1197"
     name: "PC"
-    order: 8
-  home_network: 
-    command: "IDIN0081"
-    name: "Home Network"
-    order: 9
-  usb_media: 
-    command: "IDIN0082"
-    name: "USB"
-    order: 10
+    index: 8
 remote:
   0: "IRCO010A"
   1: "IRCO0101"

@@ -1,4 +1,28 @@
-"""Module to control a Sharp Aquos Remote Control enabled TV."""
+#
+# Copyright (c) 2016, Jeffrey Moore <jmoore987@yahoo.com>
+#               2017, Roman Reibnagel <roman.reibnagel@jumio.com>
+#               2017, Franco Masotti <franco.masotti@live.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+""" Module to control a Sharp Aquos Remote Control enabled TV. """
+
 import socket
 import time
 import pkgutil
@@ -83,6 +107,11 @@ class TV(object):
                     command += str(opt)
                 sock_con.send(str.encode(command.ljust(8) + '\r'))
                 status = bytes.decode(sock_con.recv(1024)).strip()
+                # Timeout so that if multiple commands are issued in sequence
+                # there is no need putting sleeps in the middle.
+                # WARNING. This is very empirical and it most certainly
+                # will not works under some network conditions.
+                time.sleep(1)
             except (OSError, socket.error) as exp:
                 time.sleep(0.1)
                 if time.time() >= end_time:
@@ -175,10 +204,10 @@ class TV(object):
         """
         inputs = [' '] * len(self.command['input'])
         for key in self.command['input']:
-            inputs[self.command['input'][key]['order']] = {"key":key, "name":self.command['input'][key]['name']}
+            inputs[self.command['input'][key]['index']] = {"key":key, "name":self.command['input'][key]['name']}
         return inputs
 
-    def input(self, opt):
+    def input(self, opt='?'):
         """
         Description:
 
@@ -189,11 +218,16 @@ class TV(object):
             opt: string
                 Name provided from input list or key from yaml ("HDMI 1" or "hdmi_1")
         """
-
-        for key in self.command['input']:
-            if (key == opt) or (self.command['input'][key]['name'] == opt):
-                return self._send_command(['input', key, 'command'])
-        return False
+        if opt == '?':
+            index = self._send_command('input_index')
+            for key in self.command['input']:
+                if (self.command['input'][key]['index'] == index):
+                    return self.command['input'][key]['name']
+        else:
+            for key in self.command['input']:
+                if (key == opt) or (self.command['input'][key]['name'] == opt):
+                    return self._send_command(['input', key, 'command'])
+            return False
 
     def av_mode(self, opt='?'):
         """
@@ -263,7 +297,7 @@ class TV(object):
         """
         return self._send_command('teletext', opt)
 
-    def teletext_jump(self, opt='100'):
+    def teletext_jump(self, opt=100):
         """
         Description:
             Jump to specified page
@@ -443,4 +477,4 @@ class TV(object):
             opt: string
                 key provided from input list
         """
-        return self._send_command("remote", opt)
+        return self._send_command(['remote', opt])
