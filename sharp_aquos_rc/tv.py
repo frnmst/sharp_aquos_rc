@@ -444,14 +444,14 @@ class TV(object):
         Description:
             Change the Channel +1
         """
-        self._send_command('digital_channel_up')
+        self._send_command('channel_up')
 
     def channel_down(self):
         """
         Description:
             Change the Channel -1
         """
-        self._send_command('digital_channel_down')
+        self._send_command('channel_down')
 
     def get_remote_button_list(self):
         """
