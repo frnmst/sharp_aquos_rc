@@ -1,21 +1,11 @@
 # sharp_aquos_rc
 
-## Control Sharp Aquos SmartTVs with Python
+Control Sharp Aquos SmartTVs with Python
 
-Based on the API for "Remote Control App" defined on:
+## Quick start
 
-- pages 8-3 (101) through 8-8 (106) in the
-  [sharp user manual](http://files.sharpusa.com/Downloads/ForHome/HomeEntertainment/LCDTVs/Manuals/2014_TV_OM.pdf)
-- pages 58 through 59 in another
-  [sharp user manual](http://www.sharp.co.uk/cps/rde/xbcr/documents/documents/om/11_lcd-tv/LC40-46LE830E-RU-LE831E-RU_OM_GB.pdf)
-
-### To enable API on your TV
-
-1) MENU->Initial Setup->AQUOS Remote Control
-
-2) Enable
-
-3) Set Login/Pass
+Before installing this API, follow the instructions reported at
+https://sharp-aquos-remote-control.github.io/index.html#quick-start
 
 ## Installation and basic instructions
 
@@ -59,17 +49,18 @@ Full Documentation is available through pydoc
 
     pydoc sharp_aquos_rc
 
-## LICENSE
-
-MIT
-
 ## TODO/Contribute
 
 Contributions and Pull Requests always welcome.
 
 Currently on the TODO list:
-- Remote Button Functionality
 - Unit Tests
 - Error Checking and Input Validation
 - Better timeouts for sequential operations so that the sent 
   commands don't get ignored.
+- Documentation.
+
+## LICENSE
+
+MIT
+
